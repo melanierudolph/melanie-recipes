@@ -67,25 +67,27 @@
   }
   #search::placeholder { color: #666666; }
   #search:focus { border-color: #000000; }
-  #new-btn {
-    margin-top: 12px;
-    width: 100%;
+  .category-tiles {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #000000;
-    color: #FFFFFF;
-    border: none;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 2px;
-    padding: 9px 0;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .category-tile {
+    flex: 0 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    color: #000000;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    transition: background 0.15s;
+    text-align: center;
   }
-  #new-btn:hover { background: #333333; }
+  .category-tile:hover { border-color: #999999; }
+  .category-tile.active { background: #000000; color: #FFFFFF; border-color: #000000; }
+
 
   #recipe-list {
     flex: 1;
@@ -154,41 +156,6 @@
   }
 
   .card-column { width: 100%; max-width: 640px; }
-  .toolbar {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .toolbar.split { justify-content: space-between; }
-  .tbtn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: none;
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 2px;
-    border: 1px solid #DDDDDD;
-    color: #000000;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-  }
-  .tbtn:hover { color: #FFFFFF; border-color: #000000; }
-  .tbtn.danger:hover { color: #000000; border-color: #000000; }
-  .tbtn.back { border: none; padding: 6px 4px; }
-  .tbtn.save {
-    background: #000000;
-    color: #FFFFFF;
-    border: none;
-    font-weight: 500;
-  }
-  .tbtn.save:hover { background: #333333; }
-  .confirm-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
-  .confirm-row span { color: #000000; }
-  .confirm-row button { background: none; border: none; cursor: pointer; font-size: 14px; font-family: 'Inter', sans-serif; }
-  .confirm-yes { color: #000000; font-weight: 500; }
-  .confirm-no { color: #666666; }
 
   .card {
     position: relative;
@@ -242,68 +209,6 @@
   .steps-list { margin: 0; padding: 0; list-style: none; }
   .steps-list li { display: flex; gap: 12px; font-size: 14px; color: #000000; line-height: 1.6; margin-bottom: 12px; }
   .step-num { color: #000000; font-weight: 600; flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; }
-
-  /* FORM */
-  .field-label {
-    color: #000000; font-size: 11px; letter-spacing: 0.03em; display: block; margin-bottom: 2px;
-  }
-  .field-input {
-    width: 100%; background: transparent; border: none; border-bottom: 1px solid #CCCCCC;
-    outline: none; color: #000000; font-size: 14px; padding: 6px 0;
-    font-family: 'Inter', sans-serif;
-  }
-  .field-input:focus { border-color: #000000; }
-  .field-input::placeholder { color: #999999; }
-  .title-input {
-    width: 100%; background: transparent; border: none; outline: none;
-    color: #000000; font-size: 30px; margin-bottom: 8px;
-    font-family: 'Fraunces', serif; font-weight: 700;
-  }
-  .title-input::placeholder { color: #999999; }
-  .desc-input {
-    width: 100%; background: transparent; border: none; outline: none;
-    color: #333333; font-size: 14px; font-style: italic; margin-bottom: 12px;
-    font-family: 'Fraunces', serif;
-  }
-  .desc-input::placeholder { color: #999999; }
-  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-  .form-block { margin-bottom: 24px; }
-  .ing-row, .step-row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
-  .step-row { align-items: flex-start; }
-  .ing-amount-input {
-    width: 96px; flex-shrink: 0; text-align: right; background: transparent;
-    border: none; border-bottom: 1px solid #CCCCCC; outline: none;
-    color: #000000; font-size: 14px; padding: 4px 0;
-    font-family: 'IBM Plex Mono', monospace;
-  }
-  .ing-amount-input:focus { border-color: #000000; }
-  .ing-name-input {
-    flex: 1; background: transparent; border: none; border-bottom: 1px solid #CCCCCC;
-    outline: none; color: #000000; font-size: 14px; padding: 4px 0;
-    font-family: 'Inter', sans-serif;
-  }
-  .ing-name-input:focus { border-color: #000000; }
-  .step-text {
-    flex: 1; background: transparent; border: none; border-bottom: 1px solid #CCCCCC;
-    outline: none; color: #000000; font-size: 14px; padding: 4px 0; resize: none;
-    font-family: 'Inter', sans-serif;
-  }
-  .step-text:focus { border-color: #000000; }
-  .step-num-form {
-    color: #000000; font-weight: 600; padding-top: 6px; flex-shrink: 0;
-    font-family: 'IBM Plex Mono', monospace;
-  }
-  .row-remove {
-    background: none; border: none; color: #999999; cursor: pointer; padding: 0;
-    display: flex; align-items: center;
-  }
-  .row-remove:hover { color: #000000; }
-  .add-link {
-    display: flex; align-items: center; gap: 6px; background: none; border: none;
-    color: #000000; font-size: 14px; cursor: pointer; padding: 4px 0;
-    font-family: 'Inter', sans-serif;
-  }
-  .add-link:hover { color: #5f7357; }
 </style>
 </head>
 <body>
@@ -319,10 +224,11 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <input id="search" placeholder="Search recipes or tags" />
       </div>
-      <button id="new-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
-        New recipe
-      </button>
+      <div id="category-tiles" class="category-tiles">
+        <button class="category-tile" data-category="Meal">Meal</button>
+        <button class="category-tile" data-category="Side Dish">Side Dish</button>
+        <button class="category-tile" data-category="Dessert">Dessert</button>
+      </div>
     </div>
     <div id="recipe-list"></div>
   </div>
@@ -333,24 +239,11 @@
 const uid = () => Math.random().toString(36).slice(2, 10);
 const STORAGE_KEY = "recipe-box-recipes-v1";
 
-const emptyForm = () => ({
-  id: null,
-  title: "",
-  description: "",
-  servings: "",
-  prepTime: "",
-  cookTime: "",
-  tags: "",
-  ingredients: [{ id: uid(), amount: "", name: "" }],
-  steps: [{ id: uid(), text: "" }],
-});
-
 let recipes = [];
 let selectedId = null;
-let mode = "empty"; // empty | view | form
-let form = emptyForm();
+let mode = "empty"; // empty | view
 let search = "";
-let confirmingDelete = null;
+let activeCategory = null;
 
 const defaultRecipes = [
   {
@@ -360,7 +253,7 @@ const defaultRecipes = [
     servings: "16-18 meatballs",
     prepTime: "",
     cookTime: "15-20 min",
-    tags: [],
+    tags: ["Meal"],
     ingredients: [
       { id: uid(), amount: "1 lb", name: "ground chicken" },
       { id: uid(), amount: "1", name: "egg" },
@@ -389,7 +282,7 @@ const defaultRecipes = [
     servings: "",
     prepTime: "",
     cookTime: "",
-    tags: [],
+    tags: ["Meal"],
     ingredients: [
       { id: uid(), amount: "8 oz", name: "broccoli florets" },
       { id: uid(), amount: "1 tbsp", name: "avocado oil" },
@@ -422,7 +315,7 @@ const defaultRecipes = [
     servings: "",
     prepTime: "",
     cookTime: "30 min",
-    tags: [],
+    tags: ["Meal"],
     ingredients: [
       { id: uid(), amount: "12 oz", name: "italian chicken sausage or sausage of choice, cut into 1/4 inch slices" },
       { id: uid(), amount: "2 cups", name: "Brussels sprouts, roughly chopped" },
@@ -459,7 +352,7 @@ const defaultRecipes = [
     servings: "4 servings",
     prepTime: "",
     cookTime: "",
-    tags: [],
+    tags: ["Meal"],
     ingredients: [
       { id: uid(), amount: "1 tbsp", name: "avocado oil" },
       { id: uid(), amount: "1 lb", name: "lean ground beef, turkey or chicken" },
@@ -494,7 +387,7 @@ const defaultRecipes = [
     servings: "",
     prepTime: "",
     cookTime: "",
-    tags: [],
+    tags: ["Side Dish"],
     ingredients: [
       { id: uid(), amount: "", name: "kosher salt" },
       { id: uid(), amount: "20 oz", name: "cheese tortellini" },
@@ -524,8 +417,18 @@ function loadRecipes() {
     const saved = raw ? JSON.parse(raw) : [];
     const savedTitles = new Set(saved.map((r) => r.title.trim().toLowerCase()));
     const missingDefaults = defaultRecipes.filter((r) => !savedTitles.has(r.title.trim().toLowerCase()));
-    recipes = [...saved, ...missingDefaults];
-    if (missingDefaults.length > 0 || !raw) saveRecipes();
+    let changed = missingDefaults.length > 0 || !raw;
+    const updatedSaved = saved.map((r) => {
+      if (r.tags && r.tags.length > 0) return r;
+      const match = defaultRecipes.find((d) => d.title.trim().toLowerCase() === r.title.trim().toLowerCase());
+      if (match && match.tags && match.tags.length > 0) {
+        changed = true;
+        return { ...r, tags: match.tags };
+      }
+      return r;
+    });
+    recipes = [...updatedSaved, ...missingDefaults];
+    if (changed) saveRecipes();
   } catch (e) {
     recipes = defaultRecipes;
   }
@@ -553,6 +456,9 @@ function getFiltered() {
       r.title.toLowerCase().includes(q) ||
       (r.tags || []).some((t) => t.toLowerCase().includes(q))
     );
+  }
+  if (activeCategory) {
+    list = list.filter((r) => (r.tags || []).includes(activeCategory));
   }
   return [...list].sort((a, b) => a.title.localeCompare(b.title));
 }
@@ -598,7 +504,6 @@ function renderSidebar() {
       if (r) {
         selectedId = r.id;
         mode = "view";
-        confirmingDelete = null;
         renderAll();
       }
     });
@@ -645,16 +550,6 @@ function renderCard(recipe) {
 
   return `
     <div class="card-column">
-      <div class="toolbar">
-        <button class="tbtn" id="edit-btn">${svgPencil()} Edit</button>
-        ${confirmingDelete === recipe.id ? `
-          <div class="confirm-row">
-            <span>Delete this card?</span>
-            <button class="confirm-yes" id="confirm-yes">Yes</button>
-            <button class="confirm-no" id="confirm-no">No</button>
-          </div>
-        ` : `<button class="tbtn danger" id="delete-btn">${svgTrash()} Delete</button>`}
-      </div>
       <div class="card">
         <div class="holes"><span class="hole"></span><span class="hole"></span><span class="hole"></span></div>
         <div class="margin-line"></div>
@@ -670,190 +565,15 @@ function renderCard(recipe) {
   `;
 }
 
-function renderForm() {
-  const isNew = !form.id;
-  return `
-    <div class="card-column">
-      <div class="toolbar split">
-        <button class="tbtn back" id="cancel-btn">${svgArrowLeft()} Back</button>
-        <button class="tbtn save" id="save-btn">${svgSave()} Save card</button>
-      </div>
-      <div class="card">
-        <div class="holes"><span class="hole"></span><span class="hole"></span><span class="hole"></span></div>
-        <div class="margin-line"></div>
-        <input class="title-input" id="f-title" placeholder="${isNew ? "Untitled recipe" : "Recipe title"}" value="${escapeHtml(form.title)}" />
-        <input class="desc-input" id="f-description" placeholder="A one-line note about this dish" value="${escapeHtml(form.description)}" />
-        <div class="rule"></div>
-        <div class="grid3">
-          <div><label class="field-label">SERVINGS</label><input class="field-input" id="f-servings" placeholder="4" value="${escapeHtml(form.servings)}" /></div>
-          <div><label class="field-label">PREP TIME</label><input class="field-input" id="f-prepTime" placeholder="15 min" value="${escapeHtml(form.prepTime)}" /></div>
-          <div><label class="field-label">COOK TIME</label><input class="field-input" id="f-cookTime" placeholder="30 min" value="${escapeHtml(form.cookTime)}" /></div>
-        </div>
-        <div class="form-block">
-          <label class="field-label">TAGS (comma separated)</label>
-          <input class="field-input" id="f-tags" placeholder="weeknight, vegetarian, soup" value="${escapeHtml(form.tags)}" />
-        </div>
-        <div class="form-block">
-          <div class="section-label">INGREDIENTS</div>
-          <div id="ingredients-rows">
-            ${form.ingredients.map((ing) => `
-              <div class="ing-row" data-id="${ing.id}">
-                <input class="ing-amount-input" data-role="amount" placeholder="2 cups" value="${escapeHtml(ing.amount)}" />
-                <input class="ing-name-input" data-role="name" placeholder="all-purpose flour" value="${escapeHtml(ing.name)}" />
-                <button class="row-remove" data-remove-ing="${ing.id}">${svgX()}</button>
-              </div>
-            `).join("")}
-          </div>
-          <button class="add-link" id="add-ingredient">${svgPlus()} Add ingredient</button>
-        </div>
-        <div class="form-block">
-          <div class="section-label">METHOD</div>
-          <div id="steps-rows">
-            ${form.steps.map((s, idx) => `
-              <div class="step-row" data-id="${s.id}">
-                <span class="step-num-form">${String(idx + 1).padStart(2, "0")}</span>
-                <textarea class="step-text" rows="2" placeholder="Describe this step">${escapeHtml(s.text)}</textarea>
-                <button class="row-remove" data-remove-step="${s.id}" style="padding-top:6px;">${svgX()}</button>
-              </div>
-            `).join("")}
-          </div>
-          <button class="add-link" id="add-step">${svgPlus()} Add step</button>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
 function renderMain() {
   const mainEl = document.getElementById("main");
-  if (mode === "empty") {
-    mainEl.innerHTML = renderEmptyState();
-  } else if (mode === "view") {
+  if (mode === "view") {
     const recipe = recipes.find((r) => r.id === selectedId);
     if (!recipe) { mode = "empty"; mainEl.innerHTML = renderEmptyState(); return; }
     mainEl.innerHTML = renderCard(recipe);
-    attachViewHandlers(recipe);
-  } else if (mode === "form") {
-    mainEl.innerHTML = renderForm();
-    attachFormHandlers();
-  }
-}
-
-function attachViewHandlers(recipe) {
-  const editBtn = document.getElementById("edit-btn");
-  if (editBtn) editBtn.addEventListener("click", () => openEdit(recipe));
-  const deleteBtn = document.getElementById("delete-btn");
-  if (deleteBtn) deleteBtn.addEventListener("click", () => { confirmingDelete = recipe.id; renderAll(); });
-  const yesBtn = document.getElementById("confirm-yes");
-  if (yesBtn) yesBtn.addEventListener("click", () => deleteRecipe(recipe.id));
-  const noBtn = document.getElementById("confirm-no");
-  if (noBtn) noBtn.addEventListener("click", () => { confirmingDelete = null; renderAll(); });
-}
-
-function attachFormHandlers() {
-  document.getElementById("f-title").addEventListener("input", (e) => form.title = e.target.value);
-  document.getElementById("f-description").addEventListener("input", (e) => form.description = e.target.value);
-  document.getElementById("f-servings").addEventListener("input", (e) => form.servings = e.target.value);
-  document.getElementById("f-prepTime").addEventListener("input", (e) => form.prepTime = e.target.value);
-  document.getElementById("f-cookTime").addEventListener("input", (e) => form.cookTime = e.target.value);
-  document.getElementById("f-tags").addEventListener("input", (e) => form.tags = e.target.value);
-
-  document.querySelectorAll("#ingredients-rows .ing-row").forEach((row) => {
-    const id = row.dataset.id;
-    row.querySelector('[data-role="amount"]').addEventListener("input", (e) => {
-      const ing = form.ingredients.find((i) => i.id === id);
-      if (ing) ing.amount = e.target.value;
-    });
-    row.querySelector('[data-role="name"]').addEventListener("input", (e) => {
-      const ing = form.ingredients.find((i) => i.id === id);
-      if (ing) ing.name = e.target.value;
-    });
-  });
-  document.querySelectorAll("[data-remove-ing]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      form.ingredients = form.ingredients.filter((i) => i.id !== btn.dataset.removeIng);
-      renderMain();
-    });
-  });
-  document.getElementById("add-ingredient").addEventListener("click", () => {
-    form.ingredients.push({ id: uid(), amount: "", name: "" });
-    renderMain();
-  });
-
-  document.querySelectorAll("#steps-rows .step-row").forEach((row) => {
-    const id = row.dataset.id;
-    row.querySelector(".step-text").addEventListener("input", (e) => {
-      const s = form.steps.find((x) => x.id === id);
-      if (s) s.text = e.target.value;
-    });
-  });
-  document.querySelectorAll("[data-remove-step]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      form.steps = form.steps.filter((s) => s.id !== btn.dataset.removeStep);
-      renderMain();
-    });
-  });
-  document.getElementById("add-step").addEventListener("click", () => {
-    form.steps.push({ id: uid(), text: "" });
-    renderMain();
-  });
-
-  document.getElementById("save-btn").addEventListener("click", saveRecipe);
-  document.getElementById("cancel-btn").addEventListener("click", () => {
-    mode = selectedId ? "view" : "empty";
-    renderAll();
-  });
-}
-
-function openNew() {
-  form = emptyForm();
-  mode = "form";
-  selectedId = null;
-  renderAll();
-}
-
-function openEdit(recipe) {
-  form = {
-    ...recipe,
-    tags: (recipe.tags || []).join(", "),
-    ingredients: recipe.ingredients.length ? recipe.ingredients.map(i => ({...i})) : [{ id: uid(), amount: "", name: "" }],
-    steps: recipe.steps.length ? recipe.steps.map(s => ({...s})) : [{ id: uid(), text: "" }],
-  };
-  mode = "form";
-  renderAll();
-}
-
-function saveRecipe() {
-  if (!form.title.trim()) return;
-  const cleanTags = form.tags.split(",").map((t) => t.trim()).filter(Boolean);
-  const cleanIngredients = form.ingredients.filter((i) => i.name.trim());
-  const cleanSteps = form.steps.filter((s) => s.text.trim());
-
-  if (form.id) {
-    recipes = recipes.map((r) => r.id === form.id
-      ? { ...form, tags: cleanTags, ingredients: cleanIngredients, steps: cleanSteps }
-      : r
-    );
-    selectedId = form.id;
   } else {
-    const newRecipe = {
-      ...form, id: uid(), tags: cleanTags, ingredients: cleanIngredients, steps: cleanSteps, createdAt: Date.now(),
-    };
-    recipes.push(newRecipe);
-    selectedId = newRecipe.id;
+    mainEl.innerHTML = renderEmptyState();
   }
-  saveRecipes();
-  mode = "view";
-  renderAll();
-}
-
-function deleteRecipe(id) {
-  recipes = recipes.filter((r) => r.id !== id);
-  saveRecipes();
-  confirmingDelete = null;
-  selectedId = null;
-  mode = "empty";
-  renderAll();
 }
 
 function renderAll() {
@@ -864,17 +584,20 @@ function renderAll() {
 // icons
 function svgUsers() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`; }
 function svgClock() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`; }
-function svgPencil() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>`; }
-function svgTrash() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`; }
-function svgArrowLeft() { return `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>`; }
-function svgSave() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>`; }
-function svgX() { return `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>`; }
-function svgPlus() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M5 12h14M12 5v14"/></svg>`; }
 
-document.getElementById("new-btn").addEventListener("click", openNew);
 document.getElementById("search").addEventListener("input", (e) => {
   search = e.target.value;
   renderSidebar();
+});
+document.querySelectorAll(".category-tile").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const cat = btn.dataset.category;
+    activeCategory = activeCategory === cat ? null : cat;
+    document.querySelectorAll(".category-tile").forEach((b) =>
+      b.classList.toggle("active", b.dataset.category === activeCategory)
+    );
+    renderSidebar();
+  });
 });
 
 loadRecipes();
